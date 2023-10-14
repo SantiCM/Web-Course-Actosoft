@@ -1,0 +1,765 @@
+* {
+	scroll-behavior: smooth;
+	font-family: 'Roboto';
+}
+
+:root {
+	--color-primario: #0176ff;
+	--color-secundario: #158fff;
+	--color-terciario: #000000;
+	--color-bg1: #ffffff;
+	--color-bg2: #eeeeee;
+	--animacion-01: transform 0.4s, width 0.4s cubic-bezier(1, 0.01, 0, 0.98) 0.2s;
+	--sombra-01: 0 0 3px 3px rgba(255, 0, 0, 0.5);
+	--color-rgb: 100, 50, 10;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-primario: #303d4b;
+		--color-secundario: #3e97ff;
+		--color-terciario: #ffffff;
+		--color-bg1: #252e38;
+		--color-bg2: #3d4854;
+	}
+}
+
+*::selection {
+	background: #7300ff;
+	color: white;
+}
+
+body {
+	background: var(--color-bg1);
+}
+
+.lista-navegacion {
+	list-style: none;
+	padding: 0;
+}
+
+.lista-navegacion li a {
+	transition: all 0.2s;
+}
+
+/* .lista-navegacion li a:link {
+	text-decoration: none;
+	color: #00b096;
+}
+
+.lista-navegacion li a:visited {
+	color: #007160;
+}
+
+.lista-navegacion li a:active {
+	text-decoration: underline;
+}
+
+.lista-navegacion li a:hover {
+	font-size: 2rem;
+} */
+
+.lista-navegacion li {
+	width: 100%;
+	padding: 1rem 2rem;
+	margin-bottom: 1rem;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+.lista-navegacion li::before {
+	content: '';
+	background: var(--color-secundario);
+	height: 100%;
+	width: 0.5rem;
+	position: absolute;
+	transform: scaleY(0);
+	left: 0;
+	top: 0;
+	transition: var(--animacion-01);
+	z-index: -1;
+}
+
+.lista-navegacion li:hover::before {
+	transform: scaleY(1);
+	width: 100%;
+}
+
+.lista-navegacion li:hover {
+	transform: scaleY(1);
+	box-shadow: 0 0 2rem -0.5rem #d1d1d1;
+	cursor: pointer;
+}
+
+.lista-navegacion li span {
+	color: white;
+	height: 100%;
+	font-size: 1.6rem;
+}
+
+.lista-navegacion li a {
+	text-decoration: none;
+	height: 100%;
+}
+
+/*--------------------------
+	SELECTORES
+--------------------------*/
+
+/* Selctor de tipo*/
+mark {
+	background: red;
+}
+
+/* Selector por id */
+#item1 {
+	background: green;
+}
+
+/* Selector por calse */
+.item2 {
+	background: orange;
+}
+
+/* Selectores anidados */
+ul#lista1.lista1 span {
+	background: red;
+}
+
+/* Selectores multiples */
+.parrafo1,
+.texto1,
+.parrafo2 {
+	color: orange;
+}
+
+/* Selectores por atributos
+	^ -> inicia con X
+	$ -> termina con X
+	* -> incluye X
+*/
+a[href^='www'] {
+	color: red;
+}
+
+a[href$='.com'] {
+	color: green;
+}
+
+/* Selector global */
+.contenedor1 * {
+	font-size: 3rem;
+}
+
+/*--------------------------
+	CASCADA Y ESP.
+--------------------------*/
+.parrafo-chido {
+	background: orange;
+}
+
+p.rojito#p3 {
+	background: red;
+}
+
+.verde#p3 {
+	background: green !important;
+}
+
+/*--------------------------
+	COLORES
+--------------------------*/
+.c-normal {
+	color: darkcyan;
+}
+
+.c-hex {
+	color: #00ffaa;
+}
+
+.c-rgb {
+	color: rgb(5, 205, 74);
+}
+
+.c-rgba {
+	color: rgba(10, 40, 50, 0.7);
+}
+
+.c-hsl {
+	color: hsl(120, 30%, 50%);
+}
+
+.c-hsla {
+	color: hsla(220, 94%, 49%, 0.8);
+}
+
+/*--------------------------
+	BACKGROUNDS
+--------------------------*/
+.bg-color {
+	background-color: #00b096;
+	width: 100%;
+	height: 30rem;
+}
+
+.bg-imagen {
+	width: 100%;
+	height: 30rem;
+	background-image: url('https://images.vexels.com/media/users/3/230267/isolated/preview/83e373509037415d43df2861a53e3f08-lindo-gatito-semi-plano.png');
+	background-repeat: no-repeat;
+	background-size: 120rem;
+	background-position: center;
+}
+
+.bg-combinado {
+	width: 100%;
+	height: 30rem;
+	/* background-color: #008af4;
+	background-image: url('https://images.vexels.com/media/users/3/230267/isolated/preview/83e373509037415d43df2861a53e3f08-lindo-gatito-semi-plano.png');
+	background-repeat: no-repeat;
+	background-size: 12rem; */
+	background: url('https://images.vexels.com/media/users/3/230267/isolated/preview/83e373509037415d43df2861a53e3f08-lindo-gatito-semi-plano.png'),
+		radial-gradient(red, blue, orange);
+	background-repeat: no-repeat;
+}
+
+.bg-gradiente {
+	width: 100%;
+	height: 30rem;
+	background: radial-gradient(red, blue, orange);
+}
+
+/*--------------------------
+	BORDES Y OUTLINE
+--------------------------*/
+.borde1 {
+	width: 20rem;
+	height: 10rem;
+	background: #00b096;
+	border: solid 2rem green;
+	border-radius: 1rem;
+
+	outline: solid 1rem red;
+	outline-offset: 0.2rem;
+}
+
+/*--------------------------
+	COMBINADORES
+--------------------------*/
+.padre-combinadores > span {
+	color: red;
+}
+
+.padre-combinadores span + p {
+	color: green;
+}
+
+.padre-combinadores span ~ p {
+	color: orange;
+}
+
+/* .padre-combinadores p:last-of-type {
+	color: black;
+} */
+
+/*--------------------------
+	MODELO DE CAJA
+--------------------------*/
+.modelo-caja,
+.modelo-caja2 {
+	width: 30rem;
+	height: 10rem;
+	background: rgb(129, 129, 129);
+	padding: 2rem 1rem 4rem 60px;
+	border: 0.5rem solid red;
+}
+
+.modelo-caja {
+	margin-bottom: 10rem;
+}
+
+.modelo-caja2 {
+	margin-top: 10rem;
+}
+
+/*--------------------------
+	PSEUDO ELEMENTOS
+--------------------------*/
+.pseudo-elementos {
+	width: 20rem;
+	height: 10rem;
+	position: relative;
+}
+
+.pseudo-elementos::before {
+	content: 'u';
+	width: 2rem;
+	height: 1rem;
+	background: red;
+}
+
+.pseudo-elementos::after {
+	content: '😡';
+	width: 100%;
+	height: 100%;
+	background: red;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#pseudo-elementos p::first-letter {
+	color: blue;
+	font-size: 5rem;
+}
+
+#pseudo-elementos p::first-line {
+	background: yellow;
+}
+
+#pseudo-elementos ul li::marker {
+	content: '👽';
+	font-size: 3rem;
+}
+
+.input {
+	width: 30rem;
+	height: 4rem;
+	border-radius: 1rem;
+	outline: none;
+	margin-bottom: 1rem;
+	border: 3px solid rgb(0, 132, 255);
+}
+
+.input:invalid {
+	border: 3px solid red;
+}
+
+.input:valid {
+	border: 3px solid rgb(0, 215, 4);
+}
+
+.input:required {
+	background: rgb(194, 253, 255);
+}
+
+.input:read-only {
+	background: gray;
+	border: 2rem solid green;
+}
+
+.input:focus {
+	box-shadow: 0 0 0.5rem 0.2rem rgba(0, 0, 0, 0.1);
+}
+
+.prueba-pseudo-clases li:last-of-type {
+	color: orange;
+}
+
+.prueba-pseudo-clases li:first-of-type {
+	color: red;
+}
+
+.prueba-pseudo-clases p:first-child {
+	font-size: 4rem;
+}
+
+.prueba-pseudo-clases p:last-child {
+	font-size: 4rem;
+}
+
+.prueba-pseudo-clases-2 p:nth-last-child(even) {
+	color: orange;
+}
+
+table tbody tr:nth-child(even) {
+	background: #007160;
+	height: 1rem;
+}
+
+ul li:nth-child(odd) {
+	color: red;
+}
+
+/*--------------------------
+	ANIMACIONES
+--------------------------*/
+@keyframes animacion1 {
+	0% {
+		color: white;
+		transform: scale(1) translateX(0);
+	}
+
+	25% {
+		color: #00ffaa;
+		transform: scale(2) translateX(25rem);
+	}
+
+	50% {
+		color: #00ffaa;
+		transform: scale(1) translateX(50rem);
+	}
+
+	75% {
+		color: #00ffaa;
+		transform: scale(2) translateX(25rem);
+	}
+
+	100% {
+		color: orange;
+		transform: scale(1) translateX(0);
+	}
+}
+
+.anim-1 {
+	width: 10rem;
+	height: 10rem;
+	background: rgb(0, 132, 255);
+	transition: all 0.5s cubic-bezier(0.04, 1.28, 1, 0), color 1s ease-in-out, font-size 0.5s ease-out,
+		width 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+	/* animation-name: animacion1; */
+	animation-duration: 2s;
+	animation-timing-function: ease-in-out;
+	/* animation-iteration-count: infinite; */
+	animation-direction: alternate-reverse;
+}
+
+.anim-titulo-1:hover + div {
+	background: rgb(174, 0, 255);
+	color: white;
+	font-size: 3rem;
+	width: 30rem;
+	transform: scale(2) translateX(10rem);
+}
+
+@keyframes volando {
+	0% {
+		transform: translate(100rem, 10rem);
+	}
+
+	50% {
+		transform: translate(50rem, 15rem);
+	}
+
+	100% {
+		transform: translate(-20rem, 0);
+	}
+}
+
+@keyframes volando2 {
+	0% {
+		transform: translate(100rem, 20rem);
+	}
+
+	40% {
+		transform: translate(50rem, 25rem);
+	}
+
+	100% {
+		transform: translate(-20rem, 0);
+	}
+}
+
+@keyframes volando3 {
+	0% {
+		transform: translate(100rem, 20rem);
+	}
+
+	70% {
+		transform: translate(70rem, 5rem);
+	}
+
+	100% {
+		transform: translate(-20rem, 30rem);
+	}
+}
+
+.paisaje {
+	width: 100%;
+	height: 50rem;
+	background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Cuesta_del_obispo_01.jpg/64rem-Cuesta_del_obispo_01.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.paisaje .pajarito {
+	width: 5rem;
+	animation-name: volando;
+	animation-duration: 7s;
+	animation-iteration-count: infinite;
+}
+
+.paisaje .pajarito2 {
+	width: 5rem;
+	animation-name: volando2;
+	animation-duration: 7s;
+	animation-iteration-count: infinite;
+}
+
+.paisaje .pajarito3 {
+	width: 5rem;
+	animation-name: volando3;
+	animation-duration: 7s;
+	animation-iteration-count: infinite;
+}
+
+.paisaje:hover .ave {
+	animation-play-state: paused;
+}
+
+/*--------------------------
+	POSICIONAMIENTO
+--------------------------*/
+.padre-p {
+	background: gray;
+	width: 100%;
+	height: 30rem;
+	position: relative;
+}
+
+.padre-p .hijo-p {
+	padding: 3rem;
+	display: inline-block;
+	background: rgb(0, 132, 255);
+	color: white;
+	box-shadow: var(--sombra-01);
+}
+
+.hijo1 {
+	top: 10rem;
+	left: 20rem;
+}
+
+/* .hijo4 {
+	bottom: 0px;
+	right: 0;
+} */
+
+.hijo3 {
+	position: absolute;
+	top: 10rem;
+	left: 10rem;
+}
+
+.padre-p .hijo2 {
+	position: fixed;
+	background: #7300ff;
+	bottom: 0;
+	right: 0;
+}
+
+body {
+	z-index: 0;
+	background: var(--color-bg2);
+}
+
+.sticky {
+	z-index: 1;
+}
+
+.sticky-hijo1 {
+	background: red;
+	height: 20rem;
+	width: 10rem;
+	position: absolute;
+}
+
+.sticky-hijo2 {
+	background: orange;
+	height: 20rem;
+	width: 10rem;
+	position: absolute;
+}
+
+.sticky-2 {
+	position: sticky;
+	top: 10rem;
+	background: red;
+}
+
+.header {
+	background: var(--color-bg1);
+	color: var(--color-secundario);
+}
+
+.header h1 {
+	font-size: 3rem;
+}
+
+.aside {
+	background: var(--color-primario);
+}
+
+.main section {
+	background: var(--color-bg1);
+	padding: 4rem;
+	border-radius: 2rem;
+	overflow: auto;
+	min-height: 50rem;
+}
+
+.main section > h3 {
+	color: var(--color-secundario);
+	font-size: 3rem;
+	margin-bottom: 3rem;
+	position: relative;
+}
+
+.main section > h3::before {
+	content: '';
+	background: var(--color-terciario);
+	height: 0.5rem;
+	width: 10rem;
+	position: absolute;
+	bottom: -1rem;
+}
+
+/*--------------------------
+	FLEXBOX
+--------------------------*/
+
+/* FLEX CONTAINER */
+
+/*
+	flex-direction: column | row | row-reverse | column-reverse;
+	flex-wrap: nowrap | wrap | wrap-reverse;
+	flex-flow: <flex-direction> <flex-wrap>;
+	justify-content: flex-start | flex-end | center | space-around | space-between | space-evenly;
+	aling-items: stretch | flex-start | center | flex-end | baseline;
+	aling-content: stretch | flex-start | center | flex-end | baseline;
+	flex-basis: 1rem | 25% | 5rem;
+*/
+.contenedor-flexbox {
+	background: #158fff;
+	width: 100%;
+	min-height: 70rem;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+/* FLEX ITEMS */
+
+/*
+	order: numero;
+	flex-grow: number;
+	flex-shrink: 0 | 1;
+	flex-basis: px | % | rem | ems | cm | mm;
+	align-self: stretch | flex-start | flex-end | center | baseline;
+*/
+
+.hijos-flexbox {
+	background: #ffffff;
+	padding: 3rem;
+	font-size: 1.8rem;
+	margin: 1rem;
+	flex-basis: 10rem;
+	height: 10rem;
+}
+
+.hijo-flexbox-1 {
+	/* order: 2; */
+}
+
+.hijo-flexbox-2 {
+	/* flex-grow: 3; */
+	/* order: 1; */
+}
+
+.hijo-flexbox-3 {
+	/* order: 4; */
+	/* flex-grow: 3; */
+	/* align-self: ;
+	font-size: 3rem; */
+}
+
+.contenedor-principal {
+	display: flex;
+	flex-direction: row;
+}
+
+.contenedor-principal .aside {
+	min-width: 25rem;
+}
+
+/*--------------------------
+	MEDIA QUERIES
+--------------------------*/
+
+/*
+	@media screen and (max-width: px)
+	@media screen and (min-width: px)
+	@media screen and (width: px)
+	@media screen and (max-height: px)
+	@media screen and (min-height: px)
+	@media screen and (height: px)
+	@media screen and (orientation: portrait | landscape)
+	@media print
+	@media all
+*/
+
+.media1 {
+	width: 50rem;
+	height: 10rem;
+	background: #007160;
+	color: #ffffff;
+}
+
+/* laptops, pantallas, grandes */
+@media screen and (min-width: 1200px) {
+	.media1 {
+		width: 70rem;
+		height: 15rem;
+		text-transform: uppercase;
+	}
+}
+
+/* laptops, pantalladas medianas */
+@media screen and (min-width: 992px) {
+	.media1 {
+		width: 30rem;
+		height: 7rem;
+		background: #00ffaa !important;
+		color: #000000;
+	}
+}
+
+/* Tabletas medianas */
+@media screen and (min-width: 768px) {
+	.media1 {
+		background: purple;
+		box-shadow: 0 0 1rem 1rem rgba(255, 0, 0, 0.5);
+	}
+}
+
+/* Tabletas, telefonos */
+@media screen and (min-width: 600px) {
+	.media1 {
+		background: #158fff;
+		font-size: 3rem;
+		border-radius: 1rem;
+	}
+}
+
+/* Telefonos */
+@media screen and (max-width: 600px) {
+	.media1 {
+		background: #000000;
+		color: #ffffff;
+	}
+}
+
+/* Telefonos modernos */
+@media screen and (max-width: 400px) {
+	.media1 {
+		background: yellow;
+		color: black;
+	}
+}
+
+.media-picture img {
+	width: 50rem;
+}
